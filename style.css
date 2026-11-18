@@ -302,3 +302,50 @@ h2 { margin-bottom: 0; color: #1a2740; font: 800 18px Manrope, sans-serif; lette
     margin-left: 0;
   }
 }
+
+
+/* ClimaVista Image Logo */
+
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.brand-logo {
+    display: block;
+    width: 165px;
+    height: 48px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+/* Mobile logo sizing */
+
+@media (max-width: 760px) {
+    .brand-logo {
+        width: 145px;
+        height: 42px;
+    }
+}
+
+
+/* Keyboard focus for the city search field */
+.search-form input:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+
+/* Keep the numeric temperature larger than its degree symbol */
+.temperature #current-temperature-value {
+  color: #fff;
+  font-size: inherit;
+  vertical-align: baseline;
+}
+.temperature .degree-symbol {
+  color: #d8e7fc;
+  font-size: 48px;
+  vertical-align: top;
+}
