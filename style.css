@@ -102,7 +102,9 @@ h2 { margin-bottom: 0; color: #1a2740; font: 800 18px Manrope, sans-serif; lette
 .cloud::after { left: 42px; width: 48px; height: 48px; }
 .cloud-one { top: 127px; right: 14%; width: 110px; }
 .cloud-two { top: 156px; right: 49%; width: 75px; height: 20px; opacity: .55; transform: scale(.8); }
-.art-caption { position: absolute; right: 13%; bottom: 20px; color: rgba(222,236,255,.62); font-size: 8px; font-weight: 700; letter-spacing: 1.4px; line-height: 1.8; text-align: right; }
+.art-caption { position: absolute; right: 13%; bottom: 85px; z-index: 2; color: rgba(222,236,255,.75); font-size: 8px; font-weight: 700; letter-spacing: 1.4px; line-height: 1.8; text-align: right; pointer-events: none;}
+.current-bottom { z-index: 3;}
+
 .art-caption span { font-size: 7px; letter-spacing: 1px; }
 .current-bottom { position: absolute; z-index: 3; inset: auto 0 0; display: flex; align-items: center; justify-content: space-around; min-height: 65px; padding: 0 20px; border-top: 1px solid rgba(255,255,255,.13); background: rgba(9,25,49,.2); }
 .current-stat { display: flex; align-items: center; gap: 10px; }
