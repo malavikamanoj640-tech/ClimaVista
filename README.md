@@ -201,8 +201,15 @@ The following features can be explored in subsequent development stages.
 ---
 
 ## 📸 Project Preview
+# Desktop View
+
+<img width="1887" height="915" alt="image" src="https://github.com/user-attachments/assets/dceff1a5-bbff-4536-9e94-98c7f4e546e9" />
 
 <img width="607" height="797" alt="image" src="https://github.com/user-attachments/assets/98bb5e9e-d44d-4f25-8e8a-9476c5b2e4ba" />
+
+# Mobile View
+<img width="467" height="821" alt="image" src="https://github.com/user-attachments/assets/7ae4f69e-bae8-4fee-99de-9a4205eb74a1" />
+
 
 
 
