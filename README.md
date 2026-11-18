@@ -1,4 +1,4 @@
-# WeatherNow — City Weather Dashboard
+# ClimaVista — City Weather Dashboard
 
 A polished, responsive weather dashboard interface created for **SkillMe Internship · Web Development · Week 1**.
 
