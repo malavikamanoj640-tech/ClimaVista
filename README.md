@@ -1,66 +1,247 @@
-# ClimaVista — City Weather Dashboard
+# 🌤️ ClimaVista — City Weather Dashboard
 
-A polished, responsive weather dashboard interface created for **SkillMe Internship · Web Development · Week 1**.
+A modern, responsive city weather dashboard developed as part of the **SkillMe Internship – Web Development Track (Week 1)**.
 
-> **Week 1 scope:** This version focuses on the static HTML/CSS layout with sample data. Live weather search and API integration are intentionally planned for later weeks.
+ClimaVista provides a clean and intuitive interface to explore current weather information, a seven-day forecast, and daily weather highlights.
 
-## Preview
+The project focuses on building a responsive frontend using **HTML5, CSS3, and Vanilla JavaScript**, following the Week 1 internship requirements.
 
-The dashboard includes a dark navigation rail, city search form, featured current-weather panel, seven forecast cards, and compact weather highlights.
+---
 
-## Week 1 deliverables
+## 📌 Project Overview
 
-- [x] Static weather dashboard with sample data
-- [x] Accessible city search form with a visible accessible label
-- [x] Current-weather card with city, temperature, conditions, wind speed and humidity
-- [x] Seven forecast cards sharing the `.forecast-card` CSS class
-- [x] Git repository with at least three commits
-- [x] Responsive layout and horizontally scrollable forecast row on small screens
-- [ ] Add your own screenshot or 30–60 second screen recording before submission
+ClimaVista is a weather dashboard designed to present weather information in a simple, visually appealing format.
 
-## Built with
+The dashboard features a navigation sidebar, city search interface, current weather overview, weekly forecast cards, and additional weather highlights.
 
-- HTML5 — semantic structure and accessible form controls
-- CSS3 — custom properties, Flexbox, Grid, responsive media queries and focus states
-- Vanilla JavaScript — small Week 1 form validation/demo message
-- Google Fonts — DM Sans and Manrope
+**Week 1 implementation:** The project uses static sample weather data and frontend JavaScript interactions. Live weather API integration is not included in this stage.
 
-## Run locally
+---
 
-1. Download or clone this repository.
-2. Open the project folder in VS Code.
-3. Open `index.html` in your browser, or use the **Live Server** extension.
+## ✨ Features
 
-No package installation or API key is required.
+### 1. Dashboard Interface
+- Modern and professional weather dashboard design.
+- Sidebar navigation with Overview, Forecast, and Highlights sections.
+- Clean layout with consistent spacing, colours, and typography.
+- ClimaVista branding and logo.
 
-## Project structure
+### 2. City Search
+- Search input for entering a city name.
+- Search button with form submission handling.
+- Input validation for empty search fields.
+- Feedback message for the Week 1 search demonstration.
+
+### 3. Current Weather Card
+Displays sample weather information, including:
+- City name and location.
+- Current temperature.
+- Weather condition and icon.
+- Feels-like temperature.
+- Humidity.
+- Wind speed.
+- UV index.
+- Visibility.
+
+### 4. Seven-Day Weather Forecast
+- Seven individual forecast cards.
+- Day and date information.
+- Weather icons and conditions.
+- Maximum and minimum temperatures.
+- Reusable `.forecast-card` CSS class.
+
+### 5. Today's Weather Highlights
+- Sunrise time.
+- Sunset time.
+- Chance of rain.
+- Wind conditions.
+
+### 6. Dynamic JavaScript Features
+- Automatically updated date.
+- Time-based greeting.
+- Navigation active-state highlighting.
+- Search input validation and feedback.
+- Dynamic weather-card presentation based on the time of day.
+
+### 7. Responsive Design
+- Desktop-friendly dashboard layout.
+- Responsive sidebar and content layout.
+- Horizontally scrollable forecast cards on smaller screens.
+- Mobile-friendly spacing and typography.
+
+---
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| HTML5 | Semantic page structure and content |
+| CSS3 | Styling, layout and responsive design |
+| Vanilla JavaScript | Date, greeting, navigation and form interactions |
+| Flexbox | Flexible alignment and layouts |
+| CSS Grid | Dashboard and forecast layouts |
+| CSS Variables | Consistent colours and design tokens |
+| Google Fonts | DM Sans and Manrope |
+| Git | Version control |
+| GitHub | Source code hosting |
+
+---
+
+## 📂 Project Structure
 
 ```text
-WeatherNow_Week1/
+ClimaVista/
+│
+├── assets/
+│   └── logo.png
+│
 ├── index.html
 ├── style.css
 ├── script.js
 └── README.md
 ```
 
-## Design and implementation notes
+---
 
-- All visual styling is kept in `style.css`; there are no inline styles in the HTML.
-- Shared design tokens (colours, radius and shadow) are defined in `:root`.
-- The forecast uses one reusable `.forecast-card` class for all seven days.
-- The forecast strip uses horizontal overflow on narrow screens.
-- The search input has an associated accessible label, keyboard focus styling and a live status message.
-- Weather values are illustrative sample values, not live observations.
+## 🚀 Getting Started
 
-## Roadmap
+Follow these steps to run the project locally.
 
-| Week | Planned enhancement |
+### Prerequisites
+
+- Visual Studio Code
+- A modern web browser
+- Live Server extension (recommended)
+- Git (for version control)
+
+### Installation
+
+**Step 1: Clone the repository**
+
+```bash
+git clone https://github.com/malavikamanoj640-tech/ClimaVista
+```
+
+**Step 2: Navigate to the project folder**
+
+```bash
+cd ClimaVista_Week1
+```
+
+**Step 3: Open the project in VS Code**
+
+```bash
+code .
+```
+
+**Step 4: Run the application**
+
+Open `index.html` using the Live Server extension or directly in your browser.
+
+No additional package installation or API key is required.
+
+---
+
+## 📱 Responsive Design
+
+ClimaVista is designed to work across different screen sizes.
+
+- Desktop: Full dashboard with sidebar navigation.
+- Tablet: Adaptable content layout.
+- Mobile: Compact navigation and horizontally scrollable forecast section.
+
+---
+
+## 🧪 Week 1 Internship Requirements Checklist
+
+The following checklist maps the project to the Week 1 development tasks.
+
+- [x] Create the project using HTML, CSS and JavaScript.
+- [x] Define consistent CSS variables for colours and styling.
+- [x] Create a weather dashboard layout.
+- [x] Add a city search input and Search button.
+- [x] Add a current-weather card with city, temperature, condition and weather icon.
+- [x] Display humidity and wind speed.
+- [x] Create seven forecast cards.
+- [x] Use a reusable CSS class for forecast cards.
+- [x] Implement Flexbox and CSS Grid layouts.
+- [x] Add responsive design for smaller screens.
+- [x] Implement horizontal scrolling for the forecast section on mobile.
+- [x] Keep HTML, CSS and JavaScript in separate files.
+- [x] Initialize and maintain a Git repository.
+- [x] Maintain at least three meaningful Git commits.
+- [x] Add a project screenshot or a 30–60 second screen recording for submission.
+
+---
+
+## 📝 Implementation Notes
+
+- All CSS styling is maintained in `style.css`.
+- JavaScript functionality is maintained separately in `script.js`.
+- CSS custom properties are used for consistent design values.
+- The seven forecast cards share the same reusable CSS class.
+- The search form provides frontend validation and demonstration feedback.
+- Weather information displayed in this version is illustrative sample data.
+- The search form does not fetch real-time weather information or update the displayed city.
+- Date and greeting information are generated using the browser's local date and time.
+
+---
+
+## 🔮 Future Enhancements
+
+The following features can be explored in subsequent development stages.
+
+| Development Stage | Planned Enhancement |
 |---|---|
-| 1 | Static layout with sample weather data |
-| 2 | Render weather cards from JavaScript objects and add °C/°F toggle |
-| 3 | Integrate Open-Meteo geocoding and forecast APIs |
-| 4 | Saved cities, localStorage, accessibility polish and deployment |
+| Week 1 | Static weather dashboard with responsive layout and sample data |
+| Week 2 | Generate forecast cards dynamically using JavaScript and add °C/°F conversion |
+| Week 3 | Integrate weather and geocoding APIs for real-time weather information |
+| Week 4 | Add saved cities, localStorage, accessibility improvements and deployment |
 
-## Credits
+---
 
-Created as an internship learning project for the SkillMe Web Development track.
+## 📸 Project Preview
+
+<img width="607" height="797" alt="image" src="https://github.com/user-attachments/assets/98bb5e9e-d44d-4f25-8e8a-9476c5b2e4ba" />
+
+
+
+
+
+---
+
+## 🎯 Learning Outcomes
+
+Through this project, I practised:
+
+- Structuring web pages using semantic HTML5.
+- Creating reusable and maintainable CSS.
+- Using CSS variables for consistent styling.
+- Building layouts with Flexbox and CSS Grid.
+- Developing responsive interfaces.
+- Handling form input and basic validation using JavaScript.
+- Manipulating HTML elements through the DOM.
+- Using Git and GitHub for project version control.
+
+---
+
+## 👩‍💻 Author
+
+**Malavika Manoj**
+
+MCA Student | Frontend Developer | Web Developer
+
+- GitHub: [malavikamanoj640-tech](https://github.com/malavikamanoj640-tech)
+- LinkedIn: [Connect on LinkedIn](https://www.linkedin.com/in/malavika-manoj-7bb810259/)
+
+---
+
+## 📄 Acknowledgement
+
+Developed as part of the **SkillMe Internship – Web Development Track, Week 1**.
+
+This project represents my practical learning in frontend development, responsive web design, JavaScript fundamentals, and Git-based version control.
+
+---
+
+⭐ If you find this project useful, feel free to explore the repository and its implementation.
