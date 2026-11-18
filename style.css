@@ -211,3 +211,94 @@ h2 { margin-bottom: 0; color: #1a2740; font: 800 18px Manrope, sans-serif; lette
   .current-stat div > span { letter-spacing: .5px; }
   .page-footer { font-size: 7px; }
 }
+
+
+
+
+/* ==========================================
+   Mobile Weather Card Improvements
+========================================== */
+
+@media (max-width: 600px) {
+
+  /* Hide decorative illustration on small screens */
+  .current-art {
+    display: none;
+  }
+
+  /* Hide illustration caption */
+  .art-caption {
+    display: none;
+  }
+
+  /* Give weather information full width */
+  .current-main {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .weather-summary {
+    max-width: 100%;
+  }
+
+  /* Keep current weather card content organized */
+  .current-card {
+    overflow: hidden;
+  }
+}
+
+
+
+/* ==========================================
+   Mobile Sidebar Navigation
+========================================== */
+
+@media (max-width: 760px) {
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: auto;
+    padding: 13px 18px 10px;
+  }
+
+  .sidebar-label,
+  .sidebar-bottom {
+    display: none;
+  }
+
+  /* Show navigation horizontally */
+  .side-nav {
+    display: flex;
+    gap: 8px;
+    margin-top: 13px;
+    overflow-x: auto;
+    width: 100%;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .side-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-link {
+    flex: 0 0 auto;
+    min-height: 39px;
+    padding: 0 12px;
+    white-space: nowrap;
+    font-size: 11px;
+  }
+
+  /* Active mobile navigation */
+  .nav-link.active {
+    box-shadow: inset 0 -3px #ffc95e;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+}

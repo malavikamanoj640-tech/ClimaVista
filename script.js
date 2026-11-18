@@ -99,3 +99,30 @@ window.addEventListener("resize", updateActiveNavigation);
 
 // Initial navigation state
 updateActiveNavigation();
+
+
+
+/* ==========================================
+   Dynamic Time-Based Greeting
+========================================== */
+
+function updateGreeting() {
+  const greetingText = document.querySelector("#greeting-text");
+  const currentHour = new Date().getHours();
+
+  let greeting;
+
+  if (currentHour >= 5 && currentHour < 12) {
+    greeting = "Good morning";
+  } else if (currentHour >= 12 && currentHour < 17) {
+    greeting = "Good afternoon";
+  } else if (currentHour >= 17 && currentHour < 21) {
+    greeting = "Good evening";
+  } else {
+    greeting = "Good night";
+  }
+
+  greetingText.textContent = greeting;
+}
+
+updateGreeting();
