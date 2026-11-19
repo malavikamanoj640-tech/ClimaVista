@@ -73,17 +73,17 @@ ClimaVista/
    - View the seven-day forecast.
    - Observe the live clock and time-based themes.
 
-## 🖼️ Screenshots
-
-Add your project screenshots inside the `assets` folder and display them below.
 
 ### Dashboard Overview
 
-![ClimaVista Dashboard](assets/climavista-dashboard.png)
+<img width="1886" height="910" alt="w1" src="https://github.com/user-attachments/assets/7d415838-2b16-44be-a063-9bc001fe6c6e" />
 
-### Weather Forecast and Highlights
+<img width="1886" height="907" alt="w2" src="https://github.com/user-attachments/assets/937f52ac-51cb-487a-8655-1a51807ac059" />
 
-![ClimaVista Forecast](assets/climavista-forecast.png)
+<img width="1887" height="916" alt="image" src="https://github.com/user-attachments/assets/1449a6a7-86b4-445b-b69d-f172361a29ef" />
+
+<img width="1872" height="902" alt="image" src="https://github.com/user-attachments/assets/6c595982-71b2-43d7-9ce7-a45c21fc4cb8" />
+
 
 ## 📌 Important Note
 
