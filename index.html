@@ -52,12 +52,12 @@
                         <span id="mini-temperature">28°</span>
                         <span aria-hidden="true">☀️</span>
                     </div>
-                    <div class="mini-place">Pune, Maharashtra</div>
+                    <div class="mini-place" id="mini-city">Pune, Maharashtra</div>
                     <div class="mini-note">Illustrative sample data</div>
                 </div>
                 <div class="sidebar-footer">
                     <span class="status-dot" aria-hidden="true"></span>
-                    Week 1 · UI preview
+                    Week 2 · JavaScript data
                 </div>
             </div>
         </aside>
@@ -86,15 +86,32 @@
                     <p class="page-subtitle">A little clarity for whatever the day brings.</p>
                 </div>
 
-                <div class="location-pill">
-                    <span class="pin-icon" aria-hidden="true">⌖</span>
-                    India
-                    <span class="pill-divider" aria-hidden="true"></span>
-                    IST (UTC +5:30)
+                <div class="heading-actions">
+                    <div class="location-pill">
+                        <span class="pin-icon" aria-hidden="true">⌖</span>
+                        India
+                        <span class="pill-divider" aria-hidden="true"></span>
+                        IST (UTC +5:30)
+                    </div>
+                    <div class="unit-toggle" role="group" aria-label="Temperature unit">
+                        <button type="button" class="unit-button active" data-unit="C" aria-pressed="true">°C</button>
+                        <button type="button" class="unit-button" data-unit="F" aria-pressed="false">°F</button>
+                    </div>
                 </div>
             </section>
 
-            <!-- Week 1 search preview: no live API is connected -->
+            <div class="date-display">
+    <span class="date-icon">▦</span>
+
+    <span class="date-label" id="current-date"></span>
+
+    <span class="clock-divider">|</span>
+
+    <span class="current-time" id="current-time">
+        00:00:00 AM
+    </span>
+</div>
+            <!-- Week 2 sample-data search: no live API is connected -->
             <section class="search-panel" aria-label="City search">
                 <form class="search-form" id="city-search">
                     <label class="sr-only" for="city-input">Enter a city name</label>
@@ -117,7 +134,7 @@
                     <span class="hint-spark" aria-hidden="true">✦</span>
                     Explore weather around the world
                     <span class="hint-separator" aria-hidden="true">·</span>
-                    Week 1 search preview
+                    Week 2 sample-data search
                 </p>
                 <p class="search-feedback" id="search-feedback" role="status" aria-live="polite"></p>
             </section>
@@ -132,92 +149,7 @@
                     <span class="sample-tag"><span aria-hidden="true"></span> SAMPLE DATA</span>
                 </div>
 
-                <article class="current-card">
-                    <div class="current-main">
-                        <div class="current-location">
-                            <span class="location-pin" aria-hidden="true">⌖</span>
-                            <div>
-                                <h3 id="current-city">Pune</h3>
-                                <p>
-                                    <span id="current-location">Maharashtra, India</span>
-                                    <span aria-hidden="true">·</span>
-                                    <time id="weather-date"></time>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="temperature-row">
-                            <div class="temperature" aria-label="28 degrees Celsius">
-                                <span id="current-temperature-value">28</span><span>°</span>
-                            </div>
-
-                            <div class="condition-block">
-                                <div class="weather-symbol" aria-hidden="true">☀️</div>
-                                <div>
-                                    <strong id="weather-condition">Mostly sunny</strong>
-                                    <span id="feels-like">Feels like 30°</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <p class="weather-summary" id="weather-summary">
-                            A bright and pleasant day. Great weather to get out and make the most of it.
-                        </p>
-                    </div>
-
-                    <!-- Decorative CSS weather illustration -->
-                    <div class="current-art" aria-hidden="true">
-                        <div class="sun-glow"></div>
-                        <div class="sun-disc"></div>
-                        <div class="cloud cloud-one"></div>
-                        <div class="cloud cloud-two"></div>
-                        <div class="art-caption">
-                            CLEAR SKIES<br>
-                            <span>GOOD DAY AHEAD</span>
-                        </div>
-                    </div>
-
-                    <!-- Required current weather details -->
-                    <div class="current-bottom">
-                        <div class="current-stat">
-                            <span class="stat-icon" aria-hidden="true">💧</span>
-                            <div>
-                                <span>HUMIDITY</span>
-                                <strong>62<small>%</small></strong>
-                            </div>
-                        </div>
-
-                        <div class="stat-divider" aria-hidden="true"></div>
-
-                        <div class="current-stat">
-                            <span class="stat-icon" aria-hidden="true">↗</span>
-                            <div>
-                                <span>WIND SPEED</span>
-                                <strong>12<small> km/h</small></strong>
-                            </div>
-                        </div>
-
-                        <div class="stat-divider" aria-hidden="true"></div>
-
-                        <div class="current-stat">
-                            <span class="stat-icon" aria-hidden="true">☀️</span>
-                            <div>
-                                <span>UV INDEX</span>
-                                <strong>6<small> · High</small></strong>
-                            </div>
-                        </div>
-
-                        <div class="stat-divider" aria-hidden="true"></div>
-
-                        <div class="current-stat">
-                            <span class="stat-icon" aria-hidden="true">◷</span>
-                            <div>
-                                <span>VISIBILITY</span>
-                                <strong>10<small> km</small></strong>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                <article class="current-card" id="current-weather-card" aria-live="polite"></article>
             </section>
 
             <!-- Seven-day forecast -->
@@ -231,61 +163,7 @@
                 </div>
 
                 <div class="forecast-track" role="list" aria-label="Seven-day weather forecast">
-                    <article class="forecast-card today" role="listitem">
-                        <div class="forecast-day" data-forecast-day>WED <span class="today-label">TODAY</span></div>
-                        <div class="forecast-icon" aria-hidden="true">☀️</div>
-                        <div class="forecast-condition">Sunny</div>
-                        <div class="forecast-temperatures"><strong>29°</strong><span>19°</span></div>
-                        <div class="forecast-rain">☂ <span>0%</span></div>
-                    </article>
-
-                    <article class="forecast-card" role="listitem">
-                        <div class="forecast-day" data-forecast-day>THU</div>
-                        <div class="forecast-icon" aria-hidden="true">🌤️</div>
-                        <div class="forecast-condition">Partly cloudy</div>
-                        <div class="forecast-temperatures"><strong>28°</strong><span>18°</span></div>
-                        <div class="forecast-rain">☂ <span>5%</span></div>
-                    </article>
-
-                    <article class="forecast-card" role="listitem">
-                        <div class="forecast-day" data-forecast-day>FRI</div>
-                        <div class="forecast-icon" aria-hidden="true">☀️</div>
-                        <div class="forecast-condition">Clear</div>
-                        <div class="forecast-temperatures"><strong>30°</strong><span>19°</span></div>
-                        <div class="forecast-rain">☂ <span>0%</span></div>
-                    </article>
-
-                    <article class="forecast-card" role="listitem">
-                        <div class="forecast-day" data-forecast-day>SAT</div>
-                        <div class="forecast-icon" aria-hidden="true">⛅</div>
-                        <div class="forecast-condition">Cloudy</div>
-                        <div class="forecast-temperatures"><strong>27°</strong><span>18°</span></div>
-                        <div class="forecast-rain">☂ <span>10%</span></div>
-                    </article>
-
-                    <article class="forecast-card" role="listitem">
-                        <div class="forecast-day" data-forecast-day>SUN</div>
-                        <div class="forecast-icon" aria-hidden="true">🌦️</div>
-                        <div class="forecast-condition">Light rain</div>
-                        <div class="forecast-temperatures"><strong>26°</strong><span>19°</span></div>
-                        <div class="forecast-rain">☂ <span>35%</span></div>
-                    </article>
-
-                    <article class="forecast-card" role="listitem">
-                        <div class="forecast-day" data-forecast-day>MON</div>
-                        <div class="forecast-icon" aria-hidden="true">🌤️</div>
-                        <div class="forecast-condition">Partly cloudy</div>
-                        <div class="forecast-temperatures"><strong>28°</strong><span>20°</span></div>
-                        <div class="forecast-rain">☂ <span>10%</span></div>
-                    </article>
-
-                    <article class="forecast-card" role="listitem">
-                        <div class="forecast-day" data-forecast-day>TUE</div>
-                        <div class="forecast-icon" aria-hidden="true">☀️</div>
-                        <div class="forecast-condition">Sunny</div>
-                        <div class="forecast-temperatures"><strong>29°</strong><span>19°</span></div>
-                        <div class="forecast-rain">☂ <span>0%</span></div>
-                    </article>
+                    <!-- Forecast cards are generated by renderForecast() in script.js. -->
                 </div>
 
                 <p class="scroll-hint">← Swipe or scroll to explore all 7 days →</p>
