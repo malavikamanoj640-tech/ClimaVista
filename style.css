@@ -349,3 +349,219 @@ h2 { margin-bottom: 0; color: #1a2740; font: 800 18px Manrope, sans-serif; lette
   font-size: 48px;
   vertical-align: top;
 }
+
+
+/* ==========================================
+   Week 2: Unit toggle and condition themes
+========================================== */
+.heading-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 3px;
+}
+.unit-toggle {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px;
+    border: 1px solid #e7ebf1;
+    border-radius: 30px;
+    background: #fff;
+}
+.unit-button {
+    min-width: 37px;
+    padding: 7px 9px;
+    border: 0;
+    border-radius: 22px;
+    color: #78849a;
+    background: transparent;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 700;
+    transition: .2s ease;
+}
+.unit-button:hover { color: var(--blue-dark); }
+.unit-button.active {
+    color: #fff;
+    background: var(--blue-dark);
+}
+.unit-button:focus-visible {
+    outline: 2px solid var(--sun);
+    outline-offset: 2px;
+}
+.forecast-date {
+    margin-top: 3px;
+    color: #a0aaba;
+    font-size: 8px;
+}
+.temperature #current-temperature-value {
+    color: #fff;
+    font-size: inherit;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+body, .main-content {
+    transition: background-color .45s ease;
+}
+body.weather-page-sunny { background: #f6f8fb; }
+body.weather-page-cloudy { background: #eef2f7; }
+body.weather-page-rainy { background: #eaf0f8; }
+
+.current-card.weather-cloudy {
+    background: linear-gradient(112deg, #34445f 0%, #536783 58%, #71849d 100%);
+}
+.current-card.weather-cloudy .sun-disc,
+.current-card.weather-cloudy .sun-glow { opacity: .28; }
+.current-card.weather-rainy {
+    background: linear-gradient(112deg, #23364f 0%, #355574 58%, #527b9d 100%);
+}
+.current-card.weather-rainy .sun-disc,
+.current-card.weather-rainy .sun-glow { display: none; }
+.current-card.weather-rainy .current-art::after {
+    content: "🌧️";
+    position: absolute;
+    top: 52px;
+    right: 25%;
+    font-size: 78px;
+    filter: drop-shadow(0 8px 12px rgba(0,0,0,.12));
+}
+@media (max-width: 760px) {
+    .heading-actions {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin-top: 13px;
+    }
+    .location-pill { margin-bottom: 0; }
+}
+
+
+/* ==========================================
+   ClimaVista: time-aware sky illustration
+   The weather condition still controls the
+   weather palette; local time controls the sun/moon.
+========================================== */
+.current-art,
+.sun-disc,
+.sun-glow {
+    transition: background .8s ease, opacity .8s ease, box-shadow .8s ease, transform .8s ease;
+}
+
+/* Dawn: soft peach and rose sunrise */
+body.time-dawn .sun-disc {
+    background: linear-gradient(145deg, #fff0bd 0%, #ffb36b 58%, #f17d73 100%);
+    box-shadow: 0 0 48px rgba(255, 153, 111, .42);
+    transform: translateY(13px);
+}
+body.time-dawn .sun-glow {
+    background: rgba(255, 153, 111, .23);
+}
+body.time-dawn .current-art {
+    background-image: linear-gradient(135deg, rgba(255, 174, 139, .10), rgba(255, 220, 173, .04));
+}
+
+/* Morning: fresh golden sunlight */
+body.time-morning .sun-disc {
+    background: linear-gradient(145deg, #fff4b8 0%, #ffd66e 55%, #ffad45 100%);
+    box-shadow: 0 0 52px rgba(255, 211, 112, .38);
+}
+body.time-morning .sun-glow {
+    background: rgba(255, 218, 132, .20);
+}
+
+/* Afternoon: bright, warm yellow sun */
+body.time-afternoon .sun-disc {
+    background: linear-gradient(145deg, #fff8a8 0%, #ffdc45 52%, #ffad24 100%);
+    box-shadow: 0 0 58px rgba(255, 218, 69, .42);
+}
+body.time-afternoon .sun-glow {
+    background: rgba(255, 226, 100, .23);
+}
+
+/* Evening: orange-pink sunset */
+body.time-evening .sun-disc {
+    background: linear-gradient(145deg, #ffe0a0 0%, #ff9a65 58%, #e96b68 100%);
+    box-shadow: 0 0 55px rgba(255, 139, 104, .42);
+    transform: translateY(18px);
+}
+body.time-evening .sun-glow {
+    background: rgba(255, 142, 112, .25);
+}
+body.time-evening .current-art {
+    background-image: linear-gradient(135deg, rgba(255, 137, 112, .13), rgba(255, 205, 139, .05));
+}
+
+/* Night: replace the sun with a softly glowing crescent moon */
+body.time-night .sun-disc,
+body.time-night .sun-glow {
+    display: none;
+}
+body.time-night .current-card {
+    background: linear-gradient(112deg, #111b38 0%, #202f58 57%, #354b78 100%);
+}
+body.time-night .current-art {
+    background-image:
+        radial-gradient(circle at 18% 24%, rgba(255,255,255,.85) 1px, transparent 2px),
+        radial-gradient(circle at 38% 15%, rgba(255,255,255,.65) 1px, transparent 2px),
+        radial-gradient(circle at 72% 22%, rgba(255,255,255,.75) 1px, transparent 2px),
+        radial-gradient(circle at 85% 48%, rgba(255,255,255,.55) 1px, transparent 2px),
+        radial-gradient(circle at 55% 38%, rgba(255,255,255,.5) 1px, transparent 2px);
+}
+body.time-night .current-art::before {
+    content: "☾";
+    position: absolute;
+    top: 24px;
+    right: 27%;
+    z-index: 1;
+    color: #fff1bd;
+    font-family: Georgia, serif;
+    font-size: 112px;
+    line-height: 1;
+    text-shadow: 0 0 22px rgba(255, 239, 184, .55), 0 0 48px rgba(160, 190, 255, .22);
+}
+body.time-night .cloud {
+    opacity: .42;
+    filter: saturate(.7) brightness(.9);
+}
+body.time-night .art-caption {
+    color: rgba(224, 233, 255, .82);
+}
+
+@media (max-width: 760px) {
+    body.time-night .current-art::before {
+        top: 20px;
+        right: 15%;
+        font-size: 82px;
+    }
+}
+
+/* LIVE DIGITAL CLOCK */
+
+.current-time {
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.clock-divider {
+    color: var(--muted);
+    margin: 0 5px;
+}
+
+.date-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+    .date-display {
+        gap: 5px;
+    }
+
+    .current-time {
+        font-size: 12px;
+    }
+}
