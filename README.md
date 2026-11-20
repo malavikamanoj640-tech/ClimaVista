@@ -1,45 +1,67 @@
-# 🌤️ ClimaVista – WeatherNow: City Weather Dashboard
+# 🌤️ ClimaVista – Live Weather Dashboard
 
-A responsive and interactive weather dashboard built using **HTML, CSS, and JavaScript** as part of the SkillMe Full Stack Engineer Virtual Internship.
+ClimaVista is a responsive weather dashboard built using HTML, CSS, and JavaScript. It provides real-time weather information and a 7-day forecast for searched cities using the **Open-Meteo API**.
 
-ClimaVista displays current weather information, a 7-day forecast, weather highlights, and dynamic visual themes through a clean and user-friendly dashboard.
+## 🚀 Features
 
-## 🚀 Project Overview
-
-ClimaVista started as a static weather dashboard and was enhanced to dynamically render weather information using JavaScript.
-
-The application demonstrates DOM manipulation, JavaScript data objects, event handling, temperature conversion, form validation, and responsive web design.
-
-## ✨ Features
-
-### Week 1 – Static Weather Dashboard
-- Responsive weather dashboard layout.
-- Current weather information with temperature and condition.
-- Seven-day weather forecast.
-- Weather highlights including humidity, wind speed, UV index, and visibility.
+### Week 1 – Dashboard UI
+- Clean and modern weather dashboard.
+- Responsive layout using CSS Grid and Flexbox.
+- Current weather and forecast sections.
 - City search interface.
-- CSS variables for consistent styling.
-- Flexbox and CSS Grid layouts.
-- Mobile-friendly design.
 
-### Week 2 – Dynamic Weather Dashboard
-- Dynamic rendering of current weather using JavaScript.
-- Seven-day forecast cards generated from JavaScript data.
-- Reusable `renderCurrent()` and `renderForecast()` functions.
-- Weather icons generated using `getWeatherEmoji()`.
-- Working Celsius (°C) and Fahrenheit (°F) temperature conversion.
-- City search updates the displayed city name.
-- Empty search validation.
-- Dynamic background themes based on weather conditions.
-- Time-based visual themes for morning, afternoon, evening, and night.
-- Live digital clock displaying hours, minutes, and seconds.
+### Week 2 – Dynamic JavaScript
+- Dynamic weather cards rendered using JavaScript.
+- Celsius (°C) and Fahrenheit (°F) temperature conversion.
+- City search interaction.
+- Weather-condition-based backgrounds.
+- Live digital clock and time-based greeting.
+- Day and night themes.
+
+### Week 3 – Live Weather API Integration
+- Integrated Open-Meteo Geocoding API.
+- Integrated Open-Meteo Forecast API.
+- Fetches real-time weather information for searched cities.
+- Displays temperature, humidity, wind speed and other weather details.
+- Seven-day weather forecast.
+- Weather codes mapped to appropriate descriptions and emojis.
+- Loading indicators while fetching data.
+- City-not-found and network error handling.
+- Displays latitude and longitude coordinates.
+- Sunrise, sunset and daylight information.
+- Weather insights, recommendations and daily weather tips.
+- Celsius/Fahrenheit toggle works with live API data.
+
+---
+<img width="1872" height="922" alt="image" src="https://github.com/user-attachments/assets/3836fe69-8d1e-4864-a01f-a33b819a8a1c" />
+
+<img width="1887" height="926" alt="image" src="https://github.com/user-attachments/assets/9a53ff12-49bc-425b-8f76-7dbcd37cc63e" />
+
+<img width="1885" height="912" alt="image" src="https://github.com/user-attachments/assets/4c974ece-5c67-44a8-8259-c5691a33b626" />
+
 
 ## 🛠️ Technologies Used
 
-- **HTML5** – Structure of the dashboard.
-- **CSS3** – Styling, responsive layouts, Flexbox, Grid, and CSS variables.
-- **JavaScript (ES6)** – Dynamic rendering, DOM manipulation, event handling, and temperature conversion.
-- **Git & GitHub** – Version control and project hosting.
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- Fetch API
+- Async/Await
+- Open-Meteo Geocoding API
+- Open-Meteo Forecast API
+- Local development using VS Code and Live Server
+
+## 🌐 APIs Used
+
+**Geocoding API**
+
+https://geocoding-api.open-meteo.com/v1/search
+
+**Weather Forecast API**
+
+https://api.open-meteo.com/v1/forecast
+
+Weather data is provided by [Open-Meteo](https://open-meteo.com/).
 
 ## 📂 Project Structure
 
@@ -55,57 +77,31 @@ ClimaVista/
     └── logo.png
 ```
 
-## 💻 How to Run the Project
+## ▶️ How to Run
 
-1. Clone the repository:
+1. Clone or download this repository.
+2. Open the project folder in Visual Studio Code.
+3. Install the Live Server extension if it is not already installed.
+4. Right-click `index.html`.
+5. Select **Open with Live Server**.
+6. Search for a city to view its live weather information.
 
-   ```bash
-   git clone https://github.com/malavikamanoj640-tech/ClimaVista.git
-   ```
-
-2. Open the project folder in VS Code.
-
-3. Open `index.html` in your browser or run it using the VS Code Live Server extension.
-
-4. Explore the dashboard:
-   - Search for a city.
-   - Switch between °C and °F.
-   - View the seven-day forecast.
-   - Observe the live clock and time-based themes.
-
-
-### Dashboard Overview
-
-<img width="1886" height="910" alt="w1" src="https://github.com/user-attachments/assets/7d415838-2b16-44be-a063-9bc001fe6c6e" />
-
-<img width="1886" height="907" alt="w2" src="https://github.com/user-attachments/assets/937f52ac-51cb-487a-8655-1a51807ac059" />
-
-<img width="1887" height="916" alt="image" src="https://github.com/user-attachments/assets/1449a6a7-86b4-445b-b69d-f172361a29ef" />
-
-<img width="1872" height="902" alt="image" src="https://github.com/user-attachments/assets/6c595982-71b2-43d7-9ce7-a45c21fc4cb8" />
-
-
-## 📌 Important Note
-
-This version uses sample weather data stored in JavaScript. City search updates the displayed city name, but it does not fetch real-time weather information from an external weather API.
+An active internet connection is required for live weather data.
 
 ## 🔮 Future Enhancements
 
-- Integration with a live weather API.
-- Real-time weather updates based on city search.
-- Location-based weather information.
-- Extended weather forecast details.
-- Improved weather visualizations.
+- Save favourite cities.
+- Store user preferences using Local Storage.
+- Improved mobile responsiveness and accessibility.
+- Hourly weather visualization.
+- Deployment using GitHub Pages or Netlify.
 
-## 👩‍💻 Author
+## 👩‍💻 Developer
 
 **Malavika Manoj**
 
-MCA Student | Aspiring Software Developer
-
-- GitHub: [malavikamanoj640-tech](https://github.com/malavikamanoj640-tech)
-- Project Repository: [ClimaVista](https://github.com/malavikamanoj640-tech/ClimaVista)
+GitHub: https://github.com/malavikamanoj640-tech
 
 ---
 
-*Developed as part of the SkillMe Full Stack Engineer Virtual Internship.*
+*ClimaVista – Your weather, at a glance.*
