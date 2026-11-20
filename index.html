@@ -45,7 +45,7 @@
             <div class="sidebar-bottom">
                 <div class="mini-weather">
                     <div class="mini-weather-top">
-                        <span>LOCAL PREVIEW</span>
+                        <span>LIVE CONDITIONS</span>
                         <span class="live-dot" aria-hidden="true"></span>
                     </div>
                     <div class="mini-temp">
@@ -53,7 +53,7 @@
                         <span aria-hidden="true">☀️</span>
                     </div>
                     <div class="mini-place" id="mini-city">Pune, Maharashtra</div>
-                    <div class="mini-note">Illustrative sample data</div>
+                    <div class="mini-note" id="mini-note">Powered by Open-Meteo</div>
                 </div>
                 <div class="sidebar-footer">
                     <span class="status-dot" aria-hidden="true"></span>
@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="topbar-right">
-                    <time class="date-label" id="current-date" aria-label="Today's date"></time>
+                    <time class="date-label" id="topbar-date" aria-label="Today's date"></time>
                     <div class="avatar" aria-label="Profile">MM</div>
                 </div>
             </header>
@@ -111,7 +111,7 @@
         00:00:00 AM
     </span>
 </div>
-            <!-- Week 2 sample-data search: no live API is connected -->
+            <!-- Week 3 live weather search using Open-Meteo -->
             <section class="search-panel" aria-label="City search">
                 <form class="search-form" id="city-search">
                     <label class="sr-only" for="city-input">Enter a city name</label>
@@ -124,7 +124,7 @@
                         autocomplete="off"
                         aria-describedby="search-hint search-feedback"
                     >
-                    <button class="search-button" type="submit">
+                    <button class="search-button" id="search-button" type="submit">
                         <span>Search city</span>
                         <span aria-hidden="true">↗</span>
                     </button>
@@ -134,7 +134,7 @@
                     <span class="hint-spark" aria-hidden="true">✦</span>
                     Explore weather around the world
                     <span class="hint-separator" aria-hidden="true">·</span>
-                    Week 2 sample-data search
+                    Live weather search powered by Open-Meteo
                 </p>
                 <p class="search-feedback" id="search-feedback" role="status" aria-live="polite"></p>
             </section>
@@ -146,7 +146,7 @@
                         <p class="eyebrow">CURRENT CONDITIONS</p>
                         <h2 id="current-heading">Today's overview</h2>
                     </div>
-                    <span class="sample-tag"><span aria-hidden="true"></span> SAMPLE DATA</span>
+                    <span class="sample-tag live-tag" id="data-source-tag"><span aria-hidden="true"></span> LIVE WEATHER</span>
                 </div>
 
                 <article class="current-card" id="current-weather-card" aria-live="polite"></article>
@@ -176,8 +176,8 @@
                         <span class="detail-icon sun-icon" aria-hidden="true">☀</span>
                         <span class="detail-label">SUNRISE</span>
                     </div>
-                    <strong>06:42 <small>AM</small></strong>
-                    <p>First light of the day</p>
+                    <strong id="sunrise-value">--:--</strong>
+                    <p>Local sunrise</p>
                 </article>
 
                 <article class="detail-card">
@@ -185,8 +185,8 @@
                         <span class="detail-icon sunset-icon" aria-hidden="true">◒</span>
                         <span class="detail-label">SUNSET</span>
                     </div>
-                    <strong>05:58 <small>PM</small></strong>
-                    <p>Golden hour is approaching</p>
+                    <strong id="sunset-value">--:--</strong>
+                    <p>Local sunset</p>
                 </article>
 
                 <article class="detail-card">
@@ -194,8 +194,26 @@
                         <span class="detail-icon drop-icon" aria-hidden="true">⌁</span>
                         <span class="detail-label">CHANCE OF RAIN</span>
                     </div>
-                    <strong>10<small>%</small></strong>
-                    <p>Low chance of precipitation</p>
+                    <strong id="rain-chance-value">--<small>%</small></strong>
+                    <p>Maximum daily precipitation chance</p>
+                </article>
+            </section>
+
+            <section class="insights-section" aria-labelledby="insights-heading">
+                <div class="section-heading"><div><p class="eyebrow">MORE FROM YOUR FORECAST</p><h2 id="insights-heading">Atmospheric insights</h2></div></div>
+                <div class="insights-grid">
+                    <article class="insight-card"><span class="insight-icon">◉</span><span class="detail-label">AIR PRESSURE</span><strong id="pressure-value">—</strong><p>Mean sea-level pressure</p></article>
+                    <article class="insight-card"><span class="insight-icon">☁</span><span class="detail-label">CLOUD COVER</span><strong id="cloud-cover-value">—</strong><p>Current sky coverage</p></article>
+                    <article class="insight-card"><span class="insight-icon">☼</span><span class="detail-label">DAYLIGHT DURATION</span><strong id="daylight-value">—</strong><p>Today's daylight window</p></article>
+                </div>
+                <article class="daylight-card">
+                    <div class="daylight-heading"><strong>Today's daylight progress</strong><span id="daylight-progress-label">Waiting for weather data</span></div>
+                    <div class="daylight-track"><span id="daylight-progress"></span></div>
+                    <div class="daylight-ends"><span>☀ Sunrise</span><span>Sunset ☾</span></div>
+                </article>
+                <article class="recommendation-card" id="weather-recommendation">
+                    <span class="recommendation-symbol" aria-hidden="true">✦</span>
+                    <div><p class="eyebrow">CLIMAVISTA WEATHER TIP</p><h3 id="recommendation-title">Your daily suggestion</h3><p id="recommendation-text">Search for a city to receive a weather-based recommendation.</p></div>
                 </article>
             </section>
 
