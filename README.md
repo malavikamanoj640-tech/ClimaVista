@@ -39,6 +39,10 @@ ClimaVista is a responsive weather dashboard built using HTML, CSS, and JavaScri
 
 <img width="1885" height="912" alt="image" src="https://github.com/user-attachments/assets/4c974ece-5c67-44a8-8259-c5691a33b626" />
 
+---
+<img width="460" height="805" alt="image" src="https://github.com/user-attachments/assets/e64870b5-2c75-4e24-a48b-7b8953153dba" />
+
+<img width="461" height="816" alt="image" src="https://github.com/user-attachments/assets/92bcffab-dcfe-40ee-ba4f-215d6786f03d" />
 
 ## 🛠️ Technologies Used
 
