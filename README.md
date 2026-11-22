@@ -106,9 +106,7 @@ ClimaVista/
 │
 └── assets/
     ├── logo.png
-    ├── climavista-dashboard.png
-    ├── climavista-forecast.png
-    └── climavista-saved-cities.png
+    
 ```
 
 ## ▶️ How to Run Locally
