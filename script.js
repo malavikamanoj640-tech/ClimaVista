@@ -4,11 +4,86 @@
 // ================================================
 "use strict";
 
-let unit = "C";
+let unit = localStorage.getItem("climavista.unit") === "F" ? "F" : "C";
 let currentWeatherData = null;
 let forecastWeatherData = [];
 let lastSearchCity = "Pune";
 let activeRequest = false;
+const STORAGE_KEYS = { cities: "climavista.savedCities", lastCity: "climavista.lastCity", unit: "climavista.unit" };
+let savedCities = loadSavedCities();
+let lastSearchQuery = localStorage.getItem(STORAGE_KEYS.lastCity) || "Pune";
+
+function loadSavedCities() {
+    try {
+        const parsed = JSON.parse(localStorage.getItem(STORAGE_KEYS.cities) || "[]");
+        return Array.isArray(parsed) ? parsed.filter(city =>
+            city && typeof city.name === "string" &&
+            Number.isFinite(Number(city.latitude)) && Number.isFinite(Number(city.longitude))
+        ) : [];
+    } catch { return []; }
+}
+function persistSavedCities() {
+    try { localStorage.setItem(STORAGE_KEYS.cities, JSON.stringify(savedCities)); }
+    catch (error) { console.error("Could not save favourite cities:", error); setFeedback("Your browser could not save favourite cities. Check storage settings.", "error"); }
+}
+function renderSavedCities() {
+    const container = document.querySelector("#saved-cities-list");
+    if (!container) return;
+    if (!savedCities.length) {
+        container.innerHTML = '<span class="saved-empty">No saved cities yet. Save a city you want to revisit.</span>';
+        return;
+    }
+    container.innerHTML = savedCities.map((city, index) => `
+      <div class="saved-city-chip">
+        <button type="button" class="saved-city-load" data-city-index="${index}">${escapeHTML(city.name)}</button>
+        <button type="button" class="saved-city-remove" data-remove-index="${index}" aria-label="Remove ${escapeHTML(city.name)}">×</button>
+      </div>`).join("");
+}
+function saveCurrentCity() {
+    if (!currentWeatherData) return;
+    const city = {
+        name: currentWeatherData.city,
+        region: currentWeatherData.region,
+        latitude: currentWeatherData.latitude,
+        longitude: currentWeatherData.longitude,
+        searchName: lastSearchQuery
+    };
+    const duplicate = savedCities.some(item =>
+        item.name.toLowerCase() === city.name.toLowerCase() &&
+        Math.abs(Number(item.latitude) - Number(city.latitude)) < 0.01 &&
+        Math.abs(Number(item.longitude) - Number(city.longitude)) < 0.01
+    );
+    if (duplicate) { setFeedback(`${city.name} is already in your saved cities.`, "info"); return; }
+    savedCities.push(city);
+    persistSavedCities();
+    renderSavedCities();
+    setFeedback(`${city.name} added to your saved cities.`, "success");
+}
+async function loadSavedCity(city) {
+    if (activeRequest) return;
+    setLoading(true);
+    setFeedback(`Loading ${city.name}...`, "loading");
+    try {
+        const rawWeather = await getWeather(city.latitude, city.longitude);
+        const place = {
+            name: city.name, displayName: city.name, displayRegion: city.region,
+            admin1: "", country: "", latitude: Number(city.latitude), longitude: Number(city.longitude)
+        };
+        const mapped = mapWeatherResponse(place, rawWeather);
+        currentWeatherData = mapped.current;
+        forecastWeatherData = mapped.daily;
+        lastSearchQuery = city.searchName || city.name;
+        lastSearchCity = city.name;
+        localStorage.setItem(STORAGE_KEYS.lastCity, lastSearchQuery);
+        renderDashboard(); renderHighlights(mapped); renderExtraInsights(mapped);
+        setFeedback(`Live weather loaded for ${city.name}.`, "success");
+    } catch (error) {
+        setFeedback(error instanceof TypeError
+            ? "Unable to connect. Please check your internet connection and try again."
+            : (error.message || "Unable to load this saved city."), "error");
+    } finally { setLoading(false); }
+}
+
 
 const currentCard = document.querySelector("#current-weather-card");
 const forecastTrack = document.querySelector(".forecast-track");
@@ -297,7 +372,7 @@ function renderCurrent(data) {
     currentCard.innerHTML = `
       <div class="current-main">
         <div class="current-location"><span class="location-pin" aria-hidden="true">⌖</span><div>
-          <h3 id="current-city">${escapeHTML(data.city)}</h3>
+          <div class="current-city-title"><h3 id="current-city">${escapeHTML(data.city)}</h3><button type="button" class="save-city-button" id="save-city-button" aria-label="Save current city">＋ Save city</button></div>
           <p><span id="current-location">${escapeHTML(data.region)}</span><span aria-hidden="true">·</span><time id="weather-date">${formattedDate}</time></p>
           <p class="coordinate-line" id="current-coordinates" aria-label="City coordinates">${formatCoordinate(data.latitude, "lat")} · ${formatCoordinate(data.longitude, "lon")}</p>
         </div></div>
@@ -411,6 +486,7 @@ function renderDashboard() {
 }
 unitButtons.forEach(button => button.addEventListener("click", () => {
     unit = button.dataset.unit;
+    localStorage.setItem(STORAGE_KEYS.unit, unit);
     renderDashboard();
 }));
 
@@ -436,6 +512,8 @@ async function searchCity(city) {
         currentWeatherData = mapped.current;
         forecastWeatherData = mapped.daily;
         lastSearchCity = place.name;
+        lastSearchQuery = city;
+        localStorage.setItem(STORAGE_KEYS.lastCity, lastSearchQuery);
         renderDashboard();
         renderHighlights(mapped);
         renderExtraInsights(mapped);
@@ -520,10 +598,37 @@ navLinks.forEach(link => link.addEventListener("click", () => setActiveLink(link
 window.addEventListener("scroll", updateActiveNavigation, { passive: true });
 window.addEventListener("resize", updateActiveNavigation);
 
+// Week 4 controls are delegated because the current-weather card is rebuilt after each search.
+document.addEventListener("click", event => {
+    const saveButton = event.target.closest("#save-city-button");
+    if (saveButton) { saveCurrentCity(); return; }
+
+    const loadButton = event.target.closest("[data-city-index]");
+    if (loadButton) {
+        const city = savedCities[Number(loadButton.dataset.cityIndex)];
+        if (city) loadSavedCity(city);
+        return;
+    }
+
+    const removeButton = event.target.closest("[data-remove-index]");
+    if (removeButton) {
+        const index = Number(removeButton.dataset.removeIndex);
+        if (Number.isInteger(index) && index >= 0 && index < savedCities.length) {
+            const [removed] = savedCities.splice(index, 1);
+            persistSavedCities();
+            renderSavedCities();
+            setFeedback(`${removed.name} removed from your saved cities.`, "success");
+        }
+    }
+});
+
+renderSavedCities();
+updateUnitButtons();
+
 // Start with a live Pune forecast instead of the Week 2 sample data.
 updateGreetingAndDate();
 updateClock();
 updateActiveNavigation();
-searchCity("Pune");
+searchCity(lastSearchQuery);
 setInterval(updateClock, 1000);
 setInterval(updateGreetingAndDate, 60 * 1000);
