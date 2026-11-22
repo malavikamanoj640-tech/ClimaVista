@@ -127,9 +127,10 @@ An active internet connection is required for live weather data.
 
 ## 🌍 Live Demo
 
-**Live Application:** Add your deployed GitHub Pages or Netlify URL here.
+**Live Application:** 
+https://malavikamanoj640-tech.github.io/ClimaVista/
 
-**GitHub Repository:**  
+**GitHub Repository:**
 https://github.com/malavikamanoj640-tech/ClimaVista
 
 ## 🔮 Future Enhancements
