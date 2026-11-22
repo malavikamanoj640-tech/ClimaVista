@@ -1,37 +1,42 @@
-# 🌤️ ClimaVista – Live Weather Dashboard
+# 🌤️ ClimaVista – WeatherNow: City Weather Dashboard
 
-ClimaVista is a responsive weather dashboard built using HTML, CSS, and JavaScript. It provides real-time weather information and a 7-day forecast for searched cities using the **Open-Meteo API**.
+A modern, responsive weather dashboard that provides real-time weather information, a 7-day forecast, saved favourite cities and personalized weather insights.
 
-## 🚀 Features
+Developed as part of the **Full Stack Engineer Virtual Internship at SkillMe**.
 
-### Week 1 – Dashboard UI
-- Clean and modern weather dashboard.
+## 🚀 Project Overview
+
+ClimaVista allows users to search for cities, view live weather conditions, explore a seven-day forecast and save their favourite locations. The application uses the Open-Meteo API and browser localStorage to provide a convenient weather experience.
+
+## ✨ Features
+
+### Week 1 – Dashboard Design
+- Modern and clean weather dashboard.
 - Responsive layout using CSS Grid and Flexbox.
 - Current weather and forecast sections.
 - City search interface.
+- Custom styling with CSS variables.
 
 ### Week 2 – Dynamic JavaScript
-- Dynamic weather cards rendered using JavaScript.
-- Celsius (°C) and Fahrenheit (°F) temperature conversion.
-- City search interaction.
+- Dynamic weather information rendering.
+- Celsius (°C) and Fahrenheit (°F) conversion.
+- Interactive city search.
 - Weather-condition-based backgrounds.
-- Live digital clock and time-based greeting.
-- Day and night themes.
+- Live digital clock.
+- Time-based greeting and day/night themes.
 
 ### Week 3 – Live Weather API Integration
 - Integrated Open-Meteo Geocoding API.
 - Integrated Open-Meteo Forecast API.
-- Fetches real-time weather information for searched cities.
-- Displays temperature, humidity, wind speed and other weather details.
-- Seven-day weather forecast.
-- Weather codes mapped to appropriate descriptions and emojis.
-- Loading indicators while fetching data.
+- Real-time weather information using latitude and longitude.
+- Dynamic 7-day weather forecast.
+- Weather-code mapping and weather descriptions.
+- Loading indicators during API requests.
 - City-not-found and network error handling.
-- Displays latitude and longitude coordinates.
+- Latitude and longitude display.
 - Sunrise, sunset and daylight information.
-- Weather insights, recommendations and daily weather tips.
-- Celsius/Fahrenheit toggle works with live API data.
-
+- Weather insights and recommendations.
+- Personalized daily weather tips.
 ---
 <img width="1872" height="922" alt="image" src="https://github.com/user-attachments/assets/3836fe69-8d1e-4864-a01f-a33b819a8a1c" />
 
@@ -44,28 +49,50 @@ ClimaVista is a responsive weather dashboard built using HTML, CSS, and JavaScri
 
 <img width="461" height="816" alt="image" src="https://github.com/user-attachments/assets/92bcffab-dcfe-40ee-ba4f-215d6786f03d" />
 
+### Week 4 – Saved Cities, Responsive Design & Accessibility
+- Save favourite cities using localStorage.
+- Clickable saved-city chips for quick weather access.
+- Remove saved cities.
+- Duplicate-city prevention.
+- Persistent saved cities after browser refresh.
+- Restore the last searched city.
+- Remember the selected temperature unit.
+- Responsive mobile-friendly dashboard.
+- Keyboard navigation and visible focus styles.
+
 ## 🛠️ Technologies Used
 
-- HTML5
-- CSS3
-- JavaScript (ES6+)
-- Fetch API
-- Async/Await
-- Open-Meteo Geocoding API
-- Open-Meteo Forecast API
-- Local development using VS Code and Live Server
+| Technology | Purpose |
+|---|---|
+| HTML5 | Application structure |
+| CSS3 | Styling and responsive design |
+| JavaScript (ES6+) | Application logic |
+| Fetch API | Weather data retrieval |
+| Async/Await | Asynchronous API calls |
+| Open-Meteo API | Live weather information |
+| localStorage | Saved cities and user preferences |
+| GitHub | Version control and hosting |
 
 ## 🌐 APIs Used
 
-**Geocoding API**
+**1. Open-Meteo Geocoding API**
 
 https://geocoding-api.open-meteo.com/v1/search
 
-**Weather Forecast API**
+**2. Open-Meteo Forecast API**
 
 https://api.open-meteo.com/v1/forecast
 
 Weather data is provided by [Open-Meteo](https://open-meteo.com/).
+
+## 📸 Project Screenshots
+
+<img width="1875" height="917" alt="image" src="https://github.com/user-attachments/assets/a2df5542-1a43-4a07-96a6-98eb264f885f" />
+
+<img width="1861" height="902" alt="image" src="https://github.com/user-attachments/assets/2a080f3d-33de-4c11-81c5-1830dfb638fb" />
+
+<img width="1861" height="922" alt="image" src="https://github.com/user-attachments/assets/946127aa-c058-448b-88ad-4715e6eb21d0" />
+
 
 ## 📂 Project Structure
 
@@ -78,34 +105,50 @@ ClimaVista/
 ├── README.md
 │
 └── assets/
-    └── logo.png
+    ├── logo.png
+    ├── climavista-dashboard.png
+    ├── climavista-forecast.png
+    └── climavista-saved-cities.png
 ```
 
-## ▶️ How to Run
+## ▶️ How to Run Locally
 
-1. Clone or download this repository.
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/malavikamanoj640-tech/ClimaVista.git
+   ```
+
 2. Open the project folder in Visual Studio Code.
-3. Install the Live Server extension if it is not already installed.
+3. Install the Live Server extension.
 4. Right-click `index.html`.
 5. Select **Open with Live Server**.
-6. Search for a city to view its live weather information.
+6. Search for a city to explore its weather information.
 
 An active internet connection is required for live weather data.
 
+## 🌍 Live Demo
+
+**Live Application:** Add your deployed GitHub Pages or Netlify URL here.
+
+**GitHub Repository:**  
+https://github.com/malavikamanoj640-tech/ClimaVista
+
 ## 🔮 Future Enhancements
 
-- Save favourite cities.
-- Store user preferences using Local Storage.
-- Improved mobile responsiveness and accessibility.
 - Hourly weather visualization.
-- Deployment using GitHub Pages or Netlify.
+- Weather alerts and notifications.
+- Improved weather maps.
+- Additional weather insights.
 
 ## 👩‍💻 Developer
 
 **Malavika Manoj**
 
-GitHub: https://github.com/malavikamanoj640-tech
+GitHub: [malavikamanoj640-tech](https://github.com/malavikamanoj640-tech)
 
 ---
 
-*ClimaVista – Your weather, at a glance.*
+*ClimaVista – Your weather, at a glance.* 🌤️
+
+
