@@ -609,3 +609,44 @@ body.time-night .art-caption {
     letter-spacing: .15px;
     opacity: .88;
 }
+
+
+/* Week 4: saved cities */
+.current-city-title { display:flex; align-items:center; flex-wrap:wrap; gap:10px; }
+.current-city-title h3 { margin:0; }
+.save-city-button { border:1px solid #cbd8ee; border-radius:999px; padding:7px 12px; color:var(--blue-dark); background:#fff; font-size:11px; font-weight:700; cursor:pointer; }
+.save-city-button:hover { background:var(--sky); }
+.saved-cities-panel { margin: 22px 0 28px; padding:18px 20px; border:1px solid var(--line); border-radius:var(--radius-md); background:var(--surface); box-shadow:var(--shadow); }
+.saved-cities-heading { display:flex; justify-content:space-between; align-items:end; gap:12px; margin-bottom:14px; }
+.saved-cities-heading .eyebrow { margin:0 0 4px; }
+.saved-cities-heading h2 { margin:0; font:700 17px Manrope,sans-serif; }
+.saved-cities-note,.saved-empty { color:var(--muted); font-size:11px; }
+.saved-cities-list { display:flex; flex-wrap:wrap; gap:9px; }
+.saved-city-chip { display:inline-flex; align-items:center; overflow:hidden; border:1px solid #dce5f3; border-radius:999px; background:#f7f9fd; }
+.saved-city-load,.saved-city-remove { border:0; background:transparent; cursor:pointer; min-height:36px; }
+.saved-city-load { padding:0 12px; color:var(--ink); font-size:12px; font-weight:700; }
+.saved-city-remove { width:32px; color:#8b5360; font-size:19px; border-left:1px solid #e2e8f1; }
+.saved-city-chip:hover { border-color:var(--blue); background:var(--sky); }
+button:focus-visible, a:focus-visible, input:focus-visible { outline:3px solid #f0ae37; outline-offset:3px; }
+@media (max-width: 600px) {
+  .saved-cities-panel { padding:15px; margin:16px 0 22px; }
+  .saved-cities-heading { align-items:flex-start; flex-direction:column; gap:5px; }
+  .current-city-title { align-items:flex-start; }
+  .save-city-button { min-height:36px; }
+}
+@media (max-width: 375px) {
+  body { overflow-x:hidden; }
+  .main-content { min-width:0; padding-left:14px; padding-right:14px; }
+  .topbar { gap:8px; }
+  .breadcrumb { min-width:0; }
+  .date-display { flex-wrap:wrap; gap:6px; }
+  .search-form { flex-wrap:wrap; }
+  .search-form input { min-width:0; width:100%; }
+  .search-button { width:100%; justify-content:center; }
+  .current-card { min-width:0; }
+  .current-main { min-width:0; }
+  .current-location { min-width:0; }
+  .current-location h3 { overflow-wrap:anywhere; }
+  .saved-cities-list { gap:7px; }
+  .saved-city-load { padding:0 9px; }
+}
